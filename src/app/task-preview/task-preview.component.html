@@ -1,0 +1,9 @@
+<div class="preview-container">
+  <button (click)="simulateTask()" class="simulate-btn">🔍 Preview Execution</button>
+
+  <div *ngIf="isLoading" class="loading">⏳ Simulating...</div>
+
+  <div *ngIf="previewSteps.length && !isLoading" class="output-terminal">
+    <div *ngFor="let step of previewSteps" class="line">💡 {{ step }}</div>
+  </div>
+</div>

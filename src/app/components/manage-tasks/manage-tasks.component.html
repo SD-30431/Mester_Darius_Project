@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Manage Tasks</h2>
+
+  <!-- Task creation form -->
+  <div class="task-form">
+    <h3>Create New Task (Voice or Manual)</h3>
+
+    <textarea [(ngModel)]="description" placeholder="Describe the task..." rows="3"></textarea>
+    <br />
+    <button (click)="useMic()">🎙️ Use Voice</button>
+
+    <br /><br />
+    <label for="robot">Assign to Robot:</label>
+    <select id="robot" [(ngModel)]="selectedRobotId">
+      <option *ngFor="let robot of robots" [ngValue]="robot.id">
+        {{ robot.name }} (ID: {{ robot.id }})
+      </option>
+    </select>
+
+    <br /><br />
+    <button (click)="createTask()">Create Task</button>
+  </div>
+
+  <hr />
+
+  <!-- Existing task management -->
+  <button (click)="addTask()">Add Task (Manual Prompt)</button>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Robot ID</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.name }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.robot.id }}</td>
+      <td>{{ task.created_at | date:'short' }}</td>
+      <td>
+        <button (click)="editTask(task)">Edit</button>
+        <button (click)="deleteTask(task.id)">Delete</button>
+        <button (click)="openCode(task)">Open Code</button>
+        <app-task-preview [task]="task"></app-task-preview>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

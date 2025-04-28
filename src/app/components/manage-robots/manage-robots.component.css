@@ -1,0 +1,33 @@
+.robots-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.robot-list {
+  margin-bottom: 20px;
+}
+
+.robot-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.add-robot {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}

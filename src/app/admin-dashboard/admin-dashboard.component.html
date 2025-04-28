@@ -1,0 +1,17 @@
+<div>
+  <h2>Welcome, {{ currentUsername }}</h2>
+
+  <button (click)="goToManageUsers()">Manage Users</button>
+  <button (click)="goToManageRobots()">Manage Robots</button>
+  <button (click)="goToManageTasks()">Manage Tasks</button>
+  <button (click)="exportXml()">Export All Data (XML)</button>
+
+  <div class="login-activity-panel">
+    <h3>Login Activity</h3>
+    <ul>
+      <li *ngFor="let msg of loginMessages">
+        {{ msg }}
+      </li>
+    </ul>
+  </div>
+</div>

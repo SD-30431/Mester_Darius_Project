@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Manage Robots</h2>
+
+  <button (click)="addRobot()">Add Robot</button>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Owner ID</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let robot of robots">
+      <td>{{ robot.id }}</td>
+      <td>{{ robot.name }}</td>
+      <td>{{ robot.owner.id }}</td>
+      <td>{{ robot.created_at | date:'short' }}</td>
+      <td>
+        <button (click)="editRobot(robot)">Edit</button>
+        <button (click)="deleteRobot(robot)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
